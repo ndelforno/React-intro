@@ -6,7 +6,11 @@ import * as serviceWorker from './serviceWorker';
 
 var post = {
   title: "React is awesome",
-  author: "Nicolas Delforno",
+  authors:[
+    "Nicolas Delforno",
+    "Allan Sheep",
+    "Anna Watson",
+  ],
   body: "Checkout my code!",
   comments:[
     "First!",
@@ -18,7 +22,7 @@ var post = {
 ReactDOM.render(
   <Post
   title={post.title}
-  author={post.author}
+  Allauthors= {post.authors}
   body={post.body}
   comments={post.comments}
    />,
