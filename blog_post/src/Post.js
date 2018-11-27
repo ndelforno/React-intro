@@ -8,7 +8,7 @@ class Post extends Component{
   constructor (props){
     super()
     this.state = {
-      body: "Checkout my code!"
+      body: props.body
     }
   }
   changeBody(e){
