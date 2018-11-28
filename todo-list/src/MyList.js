@@ -15,15 +15,9 @@ class MyList extends Component {
 
   addItem (e){
     e.preventDefault();
-    console.log("add item!")
-    console.log(this.state.newItem)
     var newArray = this.state.toDoItemArray
     newArray.push(this.state.newItem)
-    this.state =({
-      toDoItemArray: newArray,
-      newItem: ""
-    })
-    console.log(this.state.toDoItemArray)
+    this.setState({toDoItemArray: newArray,newItem: ''})
   }
 
   newItemChange (e){
@@ -51,7 +45,7 @@ class MyList extends Component {
           {todoItems}
         </ul>
         <button onClick={(e) => this.clearList(e)}>Finished the list!</button>
-        <form>
+        <form name="myForm">
           <input type="text"
            placeholder="Type an item here"
            onChange={(e) => this.newItemChange(e)}
