@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ListItem from './ListItem'
+import ToDoList from './ToDoList'
 
 class MyList extends Component {
 
@@ -35,15 +36,12 @@ class MyList extends Component {
   }
 
   render() {
-    let todoItems = this.state.toDoItemArray.map( (item, index) => (
-          <ListItem doThis={item} key={index} />
-    ))
     return (
       <div>
         <h1> Things to do:</h1>
-        <ul>
-          {todoItems}
-        </ul>
+        
+          <ToDoList toDoItemArray={this.state.toDoItemArray} />
+
         <button onClick={(e) => this.clearList(e)}>Finished the list!</button>
         <form name="myForm">
           <input type="text"
