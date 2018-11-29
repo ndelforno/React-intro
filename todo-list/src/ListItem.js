@@ -1,13 +1,9 @@
 import React, {Component} from 'react';
 
-class ListItem extends Component {
-  render () {
-    return (
+const ListItem = props => (
       <div>
-        <li>{this.props.doThis}</li>
+        <li>{props.doThis}</li>
       </div>
-    )
-  }
-}
+)
 
 export default ListItem
