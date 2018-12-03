@@ -14,7 +14,7 @@ class About extends Component {
     }
   }
 
-  componentDidMount(){
+  handleSubmit(e){
     console.log(this.state.value)
     var base = this
     let weatherApi = `http://api.openweathermap.org/data/2.5/weather?zip=${base.state.value},us&appid=052f26926ae9784c2d677ca7bc5dec98`;
@@ -48,7 +48,7 @@ class About extends Component {
           placeholder="enter your zip Code"
           onChange={(e) => this.handleChange(e)}
           value={this.state.value} />
-          <button onClick={(e) => this.componentDidMount(e)}>Get my weather ! </button>
+          <button onClick={(e) => this.handleSubmit(e)}>Get my weather ! </button>
           <p> Current temperature: {this.state.currentTemp}</p>
           <p> Max temperature: {this.state.highTemp}</p>
           <p> Min temperature: {this.state.lowTemp}</p>
