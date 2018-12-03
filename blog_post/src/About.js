@@ -23,22 +23,20 @@ class About extends Component {
         return response.json()
       }).then((json) => {
         base.setState({
+          city: json.name,
           currentTemp: json.main.temp,
-          highTemp: json.main.temp_max,
-          lowTemp: json.main.temp_min,
           currentWeather: json.weather[0].description,
-          city: json.main.name});
+          highTemp: json.main.temp_max,
+          lowTemp: json.main.temp_min
+        })
       }).catch((ex) => {
         console.log('an error occured while parsing!', ex)
       })
-    console.log(this.city)
   }
 
   handleChange(e) {
     this.setState({value: e.target.value});
   }
-
-
 
   render(){
     return (
@@ -54,8 +52,8 @@ class About extends Component {
           <p> Current temperature: {this.state.currentTemp}</p>
           <p> Max temperature: {this.state.highTemp}</p>
           <p> Min temperature: {this.state.lowTemp}</p>
-          <p> Weather: {this.currentWeather}</p>
-          <p> City: {this.city}</p>
+          <p> Weather: {this.state.currentWeather}</p>
+          <p> City: {this.state.city}</p>
       </div>
     )
   }
