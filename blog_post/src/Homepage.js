@@ -26,12 +26,20 @@ class Homepage extends Component {
   }
   render() {
     let poetry =this.state.shakeSpeare
+    if (this.state.shakeSpeare) {
+      return (
+        <div>
+          <h1>My favorite poem:</h1>
+          {poetry}
+        </div>
+      )
+    }
     return (
-      <div>
-        <h1>My favorite poem:</h1>
-        {poetry}
-      </div>
-    )
+       <div>
+         <h1>My favorite Shakespeare poem:</h1>
+         Loading...
+       </div>
+     )
   }
 }
 
