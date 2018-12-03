@@ -46,6 +46,25 @@ class About extends Component {
 
 
   render(){
+    if (this.state.currentTemp) {
+      return (
+        <div>
+          <h1>About</h1>
+          <p>I you want I can tell you what is the weather right now in your area</p>
+          <p>Please enter your zip code for the weather:</p>
+          <input type="text"
+            placeholder="enter your zip Code"
+            onChange={(e) => this.handleChange(e)}
+            value={this.state.value} />
+            <button onClick={(e) => this.handleSubmit(e)}>Get my weather ! </button>
+            <p> Current temperature: {Math.round(kToC(this.state.currentTemp))}</p>
+            <p> Max temperature: {Math.round(kToC(this.state.highTemp))}</p>
+            <p> Min temperature: {Math.round(kToC(this.state.lowTemp))}</p>
+            <p> Weather: {this.state.currentWeather}</p>
+            <p> City: {this.state.city}</p>
+        </div>
+      )
+    }
     return (
       <div>
         <h1>About</h1>
@@ -56,11 +75,6 @@ class About extends Component {
           onChange={(e) => this.handleChange(e)}
           value={this.state.value} />
           <button onClick={(e) => this.handleSubmit(e)}>Get my weather ! </button>
-          <p> Current temperature: {Math.round(kToC(this.state.currentTemp))}</p>
-          <p> Max temperature: {Math.round(kToC(this.state.highTemp))}</p>
-          <p> Min temperature: {Math.round(kToC(this.state.lowTemp))}</p>
-          <p> Weather: {this.state.currentWeather}</p>
-          <p> City: {this.state.city}</p>
       </div>
     )
   }
