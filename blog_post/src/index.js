@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Post from './Post';
+import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 var post = {
@@ -20,7 +20,7 @@ var post = {
 }
 
 ReactDOM.render(
-  <Homepage/>,
+  <App/>,
   document.getElementById('root')
 );
 
