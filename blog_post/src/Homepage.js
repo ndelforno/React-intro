@@ -25,7 +25,7 @@ class Homepage extends Component {
       })
   }
   render() {
-    let poetry =this.state.shakeSpeare
+    let poetry = this.state.shakeSpeare
     if (this.state.shakeSpeare) {
       return (
         <div>
