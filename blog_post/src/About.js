@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 
+function kToC(k){
+  var kTemp = k;
+  var kToCel = k -  273.15;
+  return kToCel;
+}
+
 class About extends Component {
 
   constructor(props){
@@ -38,6 +44,7 @@ class About extends Component {
     this.setState({value: e.target.value});
   }
 
+
   render(){
     return (
       <div>
@@ -49,9 +56,9 @@ class About extends Component {
           onChange={(e) => this.handleChange(e)}
           value={this.state.value} />
           <button onClick={(e) => this.handleSubmit(e)}>Get my weather ! </button>
-          <p> Current temperature: {this.state.currentTemp}</p>
-          <p> Max temperature: {this.state.highTemp}</p>
-          <p> Min temperature: {this.state.lowTemp}</p>
+          <p> Current temperature: {kToC(this.state.currentTemp)}</p>
+          <p> Max temperature: {kToC(this.state.highTemp)}</p>
+          <p> Min temperature: {kToC(this.state.lowTemp)}</p>
           <p> Weather: {this.state.currentWeather}</p>
           <p> City: {this.state.city}</p>
       </div>
