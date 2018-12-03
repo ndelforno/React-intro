@@ -1,13 +1,35 @@
 import React, { Component } from 'react';
 
 class Homepage extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      shakeSpeare: ""
+    }
+  }
+
+  componentDidMount(){
+// save a reference to `this` because the value of `this` will change
+// inside the different callback functions.
+    var base = this
+// fetch a poem
+    let poemApi = 'http://ShakeItSpeare.com/api/poem';
+    fetch(poemApi)
+      .then((response) => {
+        return response.json()
+      }).then((json) => {
+        base.setState({shakeSpeare: json.poem});
+      }).catch((ex) => {
+        console.log('an error occured while parsing!', ex)
+      })
+  }
   render() {
+    let poetry =this.state.shakeSpeare
     return (
       <div>
-        <h1>Welcome to homepage</h1>
-        <p>
-        homepage
-        </p>
+        <h1>My favorite poem:</h1>
+        {poetry}
       </div>
     )
   }

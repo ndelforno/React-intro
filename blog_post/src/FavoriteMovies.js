@@ -5,9 +5,9 @@ class FavoriteMovies extends Component {
     return (
       <div>
         <h1>My Favorite Movies</h1>
-        <p>
+        <h2>
         Movies
-        </p>
+        </h2>
       </div>
     )
   }
