@@ -20,12 +20,7 @@ var post = {
 }
 
 ReactDOM.render(
-  <Post
-  title={post.title}
-  Allauthors= {post.authors}
-  body={post.body}
-  comments={post.comments}
-   />,
+  <Homepage/>,
   document.getElementById('root')
 );
 
