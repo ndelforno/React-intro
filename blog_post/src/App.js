@@ -13,6 +13,21 @@ import FavoriteMovies from './FavoriteMovies';
 import FavoriteFood from './FavoriteFood';
 import About from './About';
 
+var post = {
+  title: "React is awesome",
+  authors:[
+    "Nicolas Delforno",
+    "Allan Sheep",
+    "Anna Watson",
+  ],
+  body: "Checkout my code!",
+  comments:[
+    "First!",
+    "Great post",
+    "Hire this author now!",
+  ]
+}
+
 class App extends Component {
   render() {
     return (
@@ -21,8 +36,8 @@ class App extends Component {
           <nav>
             <Link to="/">Home</Link>{' '}
             <Link to="/Post">Main Blog</Link>{' '}
-            <Link to="/FavoriteMovies">Favorite Movies</Link>
-            <Link to="/FavoriteFood">Favorite food</Link>
+            <Link to="/FavoriteMovies">Favorite Movies</Link>{' '}
+            <Link to="/FavoriteFood">Favorite food</Link>{' '}
             <Link to="/About">About</Link>
           </nav>
           <Route exact path="/" component={Homepage} />
