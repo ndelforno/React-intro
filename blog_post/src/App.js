@@ -35,7 +35,7 @@ class App extends Component {
         <div>
           <nav>
             <Link to="/">Home</Link>{' '}
-            <Link to="/Post">Main Blog</Link>{' '}
+            <Link to="/Post">My Blog</Link>{' '}
             <Link to="/FavoriteMovies">Favorite Movies</Link>{' '}
             <Link to="/FavoriteFood">Favorite food</Link>{' '}
             <Link to="/About">About</Link>

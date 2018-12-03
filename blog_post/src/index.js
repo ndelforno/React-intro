@@ -4,20 +4,6 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-var post = {
-  title: "React is awesome",
-  authors:[
-    "Nicolas Delforno",
-    "Allan Sheep",
-    "Anna Watson",
-  ],
-  body: "Checkout my code!",
-  comments:[
-    "First!",
-    "Great post",
-    "Hire this author now!",
-  ]
-}
 
 ReactDOM.render(
   <App/>,

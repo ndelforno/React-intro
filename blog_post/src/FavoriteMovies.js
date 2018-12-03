@@ -4,9 +4,9 @@ class FavoriteMovies extends Component {
   render() {
     return (
       <div>
-        <h1>Welcome to homepage</h1>
+        <h1>My Favorite Movies</h1>
         <p>
-        hompeage
+        Movies
         </p>
       </div>
     )

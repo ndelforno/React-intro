@@ -6,7 +6,7 @@ class Homepage extends Component {
       <div>
         <h1>Welcome to homepage</h1>
         <p>
-        hompage
+        homepage
         </p>
       </div>
     )
