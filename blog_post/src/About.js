@@ -56,9 +56,9 @@ class About extends Component {
           onChange={(e) => this.handleChange(e)}
           value={this.state.value} />
           <button onClick={(e) => this.handleSubmit(e)}>Get my weather ! </button>
-          <p> Current temperature: {kToC(this.state.currentTemp)}</p>
-          <p> Max temperature: {kToC(this.state.highTemp)}</p>
-          <p> Min temperature: {kToC(this.state.lowTemp)}</p>
+          <p> Current temperature: {Math.round(kToC(this.state.currentTemp))}</p>
+          <p> Max temperature: {Math.round(kToC(this.state.highTemp))}</p>
+          <p> Min temperature: {Math.round(kToC(this.state.lowTemp))}</p>
           <p> Weather: {this.state.currentWeather}</p>
           <p> City: {this.state.city}</p>
       </div>
