@@ -67,28 +67,38 @@ const FruitFilter = props => (
 class FruitContainer extends Component {
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      // initialize the fruit list to the full list passed in props
       fruitsToDisplay: props.fruits,
-      // intialize the filter value to an empty string
+      unmatchedFruits: [],
       filterValue: '',
-      unmatchedFruits: props.fruits
+      isMatching: false,
     }
-    // bind the context of our filterChange event handler
+
     this.handleFilterChange = this.handleFilterChange.bind(this)
+    this.handleMatchingClick = this.handleMatchingClick.bind(this)
+    this.handleUnmatchingClick = this.handleUnmatchingClick.bind(this)
   }
 
+   handleMatchingClick() {
+    this.setState({isMatching: true})
+  }
+
+   handleUnmatchingClick() {
+    this.setState({isMatching: false})
+  }
+
+
+
+  // This method is accurate.
   handleFilterChange(event) {
-    event.preventDefault()
+    event.preventDefault();
     const filterValue = event.target.value;
     this.setState((prevState, props) => {
-      // remove fruits that don't contain the filter value
       const filteredFruitList = props.fruits.filter(fruit =>
-        fruit.toLocaleLowerCase().includes(filterValue.toLocaleLowerCase()));
+        fruit.toLocaleLowerCase().includes(filterValue.toLocaleLowerCase()))
       const unmatchedFruits = props.fruits.filter(fruit =>
- !fruit.toLocaleLowerCase().includes(filterValue.toLocaleLowerCase()));
-      // return new state with the filtered fruit list and the new value of the filter
+        !fruit.toLocaleLowerCase().includes(filterValue.toLocaleLowerCase()))
       return {
         fruitsToDisplay: filteredFruitList,
         unmatchedFruits: unmatchedFruits,
@@ -98,17 +108,46 @@ class FruitContainer extends Component {
   }
 
   render() {
+    const isMatching = this.state.isMatching;
+
+    let button = null;
+    let fruitChoice = null;
+
+    if (isMatching){
+      button = <UnmatchingButton onClick={this.handleUnmatchingClick} />;
+      fruitChoice = this.state.fruitsToDisplay
+    } else {
+      button = <MatchingButton onClick={this.handleMatchingClick} />;
+      fruitChoice = this.state.unmatchedFruits
+    }
+
     return (
       <div>
         <FruitFilter value={this.state.filterValue} onChange={this.handleFilterChange} />
-         <p>Matching fruits:</p>
-         <FruitList fruits={this.state.fruitsToDisplay} />
-         <p>Unmatched fruits:</p>
-         <FruitList fruits={this.state.unmatchedFruits} />
+        {button}
+        <FruitList fruits={fruitChoice} />
       </div>
     )
   }
+}
 
+
+// The two below methods have been added for you and don't need to change
+
+function MatchingButton(props) {
+    return (
+      <button onClick={props.onClick}>
+          Show matching fruits
+      </button>
+    )
+}
+
+function UnmatchingButton(props) {
+  return (
+    <button onClick={props.onClick}>
+        Show unmatching fruits
+    </button>
+  )
 }
 
 class App extends Component {
